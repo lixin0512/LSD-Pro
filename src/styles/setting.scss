@@ -1,0 +1,16 @@
+$color: #666;
+$bgcolor: #f8f8f8;
+$height: 5vh;
+
+.setting {
+  width: 100vw;
+  height: 100vh;
+  .setting-title {
+    // font-size: v-bind(size);
+    height: $height;
+    // color: v-bind(color);
+    background: $bgcolor;
+    line-height: $height;
+    font-weight: 700;
+  }
+}
