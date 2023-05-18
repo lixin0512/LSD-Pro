@@ -1,16 +1,19 @@
-$color: #666;
-$bgcolor: #f8f8f8;
-$height: 5vh;
-
+$color: #fff;
+// $bgcolor: #f8f8f8;
+$fontSize: 1.75rem;
+$fontSizeSmall: 1rem;
 .setting {
-  width: 100vw;
-  height: 100vh;
-  .setting-title {
-    // font-size: v-bind(size);
-    height: $height;
-    // color: v-bind(color);
-    background: $bgcolor;
-    line-height: $height;
+  // height: 100vh;
+  .setting-header {
+    position: relative;
+    // background: $bgcolor;
     font-weight: 700;
+    text-align: center;
+    overflow: hidden;
+    .setting-title{
+      color: $color;
+      font-size: $fontSize;
+      letter-spacing: 1.5px;
+    }
   }
 }

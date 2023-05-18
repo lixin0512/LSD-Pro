@@ -3,9 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import api from "./api/index.js";
 import { createPinia } from "pinia";
-import '@/styles/tailwind.scss';
 import "@/styles/normalize.scss";
-import "@/style.scss";
+import "styles/style.scss";
 import * as Elicons from "@element-plus/icons-vue";
 //引入Elmessage和Elloading的css样式文件
 import "element-plus/theme-chalk/el-loading.css";
@@ -13,7 +12,12 @@ import "element-plus/theme-chalk/el-message.css";
 import * as echarts  from "echarts";
 import { v4 as uuidv4 } from "uuid";
 import 'animate.css';
+import DataVVue3 from '@kjgl77/datav-vue3'
 // import "animate.css/animate.min.css";
+import 'echarts-liquidfill'
+import VueParticles from 'vue-particles'
+
+
 
 const app = createApp(App);
 
@@ -30,7 +34,8 @@ app.provide("global", {
 // app.config.globalProperties.$axios = api;
 // app.config.globalProperties.$echarts = window.echarts;
 app.use(router);
+app.use(DataVVue3);
+app.use(VueParticles);
 app.use(createPinia());
 app.mount("#app");
 
-// 使用 this.$axios()

@@ -1,9 +1,5 @@
 <template>
   <div class="screen-container">
-    <!-- <div class="setting-header  animate__animated animate__fadeIn ">
-          <span class="setting-title cur-pointer" @click="changeSettingTitle">{{ settingTitle }}</span>
-          <TimeModal class="setting-time"></TimeModal>
-       </div> -->
     <header class="screen-header">
       <div>
         <img src="@/assets/images/header_border_dark.png" alt="" />
@@ -14,36 +10,23 @@
         <TimeModal :datetime="datetime"></TimeModal>
       </div>
     </header>
-    <div class="setting-line-1"></div>
-    <div class="setting-line-2"></div>
-    <div class="setting-line-3"></div>
+    <Echarts></Echarts>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, toRefs, onMounted, computed, inject } from "vue";
 import TimeModal from "comps/timeModal.vue";
+import Echarts from "comps/Echarts/index.vue";
 import { getTimeData } from "@/utils";
-
-let settingTitle = ref("漯河卷烟厂实时监控系统");
+// 注入全局变量
+const global = inject("global");
 let datetime = reactive({
   date: "",
   time: "",
   week: "",
   collectTime: "",
 });
-
-let heightLists = reactive({
-  titleH: 6,
-  line1H: 25,
-  line2H: 38,
-  line3H: null,
-});
-computed(() => {
-  heightLists.line3H =
-    100 - heightLists.titleH - heightLists.line1H - heightLists.line2H;
-});
-let { titleH, line1H, line2H, line3H } = toRefs(heightLists);
 
 const getCollectTime = () => {
   setInterval(() => {
@@ -53,32 +36,18 @@ const getCollectTime = () => {
     datetime.week = `${week}`;
     let times = Date.now() - 24 * 60 * 60 * 1000; // ms
     let dateString = new Date(times).toLocaleString().split(",")[0];
-    datetime.collectTime = dateString.split("/")[2] + '-' + dateString.split("/")[0] + '-' + dateString.split("/")[1]
+    datetime.collectTime =
+      dateString.split("/")[2] +
+      "-" +
+      dateString.split("/")[0] +
+      "-" +
+      dateString.split("/")[1];
   }, 1000);
-};
-
-const changeSettingTitle = () => {
-  settingTitle.value = "漯河卷烟厂实时监控系统";
 };
 
 onMounted(() => {
   getCollectTime();
 });
-
-/**请求数据
- * 
- * // 注入全局变量
-const global = inject("global");
- onMounted(async()=>{
-    let result = await global.api.getEcharts();
-   if(result.success){
-     list.value = result.data
-   }else{
-   throw new Error("请求失败");
- }
-    let res = result.data;
- })
- */
 </script>
 
 <style lang="scss">
@@ -107,6 +76,10 @@ const global = inject("global");
   height: 64px;
   font-size: 20px;
   position: relative;
+  // 后面加的下边距
+  margin-bottom: 10px;
+  // background: #001c29;
+  background-color: #161522;
 
   > div {
     img {
@@ -154,29 +127,4 @@ const global = inject("global");
   top: 20px;
   cursor: pointer;
 }
-
-// .setting-line-1 {
-//   height: calc(v-bind(line1H) * 1vh);
-//   border: 1px solid yellow;
-// }
-
-// .setting-line-3 {
-//   height: calc(v-bind(line2H) * 1vh);
-//   border: 1px solid blue;
-// }
-
-// .setting-line-2 {
-//   height: calc(v-bind(line3H) * 1vh);
-//   border: 1px solid green;
-// }
-
-// .setting {
-//    @include bg(red);
-// }
-
-// 定义变量
-
-// .setting{
-//    @include background-black;
-// }
 </style>
