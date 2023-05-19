@@ -9,7 +9,8 @@
   height: 100px;
   position: absolute;
   top: 32%;
-  left: 12%;
+  // left: 12%;
+  left: 8%;
 }
 .yield-wrap > div {
   float: left;
@@ -26,6 +27,16 @@
 .yield-wrap > div:not(:last-child) {
   margin-right: 8px;
 }
+.yield-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 78%;
+  left: 69.2%;
+  transform: translate(-50%, -50%);
+}
 </style>
 <template>
   <dv-border-box12 class="com-container">
@@ -35,6 +46,7 @@
         {{ item }}
       </div>
     </div>
+    <!-- <div class="yield-dot"></div> -->
   </dv-border-box12>
 </template>
 
@@ -43,7 +55,7 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 
 const global = inject("global");
 
-let yieldnum = ref(47365);
+let yieldnum = ref('123510');
 let yieldArr = yieldnum.value.toString().split("");
 
 let initChart = () => {
@@ -51,7 +63,7 @@ let initChart = () => {
   let yieldChart = global.echarts.init(chart);
   let option = {
     title: {
-      text: "▎本年度产量（万箱）",
+      text: "▎本年度产量（箱）",
       left: "35px",
       top: "20px",
       textStyle: {
@@ -65,7 +77,7 @@ let initChart = () => {
   //自适应
   window.onresize = function () {
     //自适应大小
-    chart.resize();
+    yieldChart.resize();
   };
 };
 onMounted(() => {

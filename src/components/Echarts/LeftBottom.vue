@@ -268,10 +268,10 @@ let initChart = () => {
 
   mediumChart.setOption(option);
   //自适应
-  // window.onresize = function () {
-  //   //自适应大小
-  //   chart.resize();
-  // };
+  window.onresize = function () {
+    //自适应大小
+    mediumChart.resize();
+  };
 };
 onMounted(() => {
   initChart();

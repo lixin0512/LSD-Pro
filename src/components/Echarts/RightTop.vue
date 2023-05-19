@@ -21,7 +21,7 @@ let initChart = () => {
 
   // 内容区域开始
   var getmydmc = ["日累计", "月累计", "年累计"]; //名称
-  var getmyNum = [60.0, 100000, 50000]; // 数量
+  var getmyNum = [502, 12210, 19325]; // 数量
   var getmyd = ["15.70", "13.35", "10.86"]; //比例
 
   var option = {
@@ -37,8 +37,8 @@ let initChart = () => {
     grid: {
       left: "15%",
       right: "5%",
-      bottom: "10%",
-      top: "25%",
+      bottom: "5%",
+      top: "30%",
     },
     tooltip: {
       trigger: "axis",
@@ -215,6 +215,12 @@ let initChart = () => {
 
   waterChart.setOption(option);
   //自适应
+  window.onresize = function () {
+    //自适应大小
+    waterChart.resize();
+  };
+
+
 };
 onMounted(() => {
   initChart();

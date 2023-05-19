@@ -35,19 +35,19 @@ let initChart = () => {
   var color = ["#02CDFF", "#62FBE7", "#7930FF", "#E148EB"];
   var data = [
     {
-      value: 45.8,
+      value: 281020,
       name: "卷包",
     },
     {
-      value: 72.2,
+      value: 636880,
       name: "动力",
     },
     {
-      value: 32.6,
-      name: "输出",
+      value: 294851,
+      name: "制丝",
     },
     {
-      value: 6.3,
+      value: 51170,
       name: "管理",
     },
   ];
@@ -123,7 +123,7 @@ let initChart = () => {
   //自适应
   window.onresize = function () {
     //自适应大小
-    chart.resize();
+    departChart.resize();
   };
 };
 onMounted(() => {

@@ -26,6 +26,9 @@
       <div class="right-middle">
         <Right-middle></Right-middle>
       </div>
+      <div class="right-bmiddle">
+        <Rightb-middle></Rightb-middle>
+      </div>
       <div class="right-bottom">
         <Right-bottom></Right-bottom>
       </div>
@@ -41,6 +44,7 @@ import MiddleTop from './MiddleTop.vue'
 import MiddleBottom from './MiddleBottom.vue'
 import RightTop from './RightTop.vue'
 import RightMiddle from './RightMiddle.vue'
+import RightbMiddle from './RightbMiddle.vue'
 import RightBottom from './RightBottom.vue'
 import { ref, reactive, toRefs } from "vue";
 </script>
@@ -160,18 +164,24 @@ import { ref, reactive, toRefs } from "vue";
     width: 31%;
 
     .right-top {
-      height: 30.6vh;
+      height: 22.7vh;
       position: relative;
     }
 
     .right-middle {
-      height: 30.6vh;
+      height: 22.7vh;
+      margin:  8px 0;
+      position: relative;
+    }
+
+    .right-bmiddle {
+      height: 22.7vh;
       margin:  8px 0;
       position: relative;
     }
 
     .right-bottom {
-      height: 30.6vh;
+      height: 22.7vh;
       // margin-top: 25px;
       // margin-top: 8px;
       position: relative;

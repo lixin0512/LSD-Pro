@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
-#steam-chart {
+#gas-chart {
   width: 100%;
   height: 100%;
 }
 </style>
 <template>
   <dv-border-box12 class="com-container">
-    <div id="steam-chart"></div>
+    <div id="gas-chart"></div>
   </dv-border-box12>
 </template>
 
@@ -16,17 +16,17 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 const global = inject("global");
 
 let initChart = () => {
-  let chart = document.getElementById("steam-chart");
-  let steamChart = global.echarts.init(chart);
+  let chart = document.getElementById("gas-chart");
+  let gasChart = global.echarts.init(chart);
 
   // 内容区域开始
   var getmydmc = ["日累计", "月累计", "年累计"]; //名称
-  var getmyNum = [42.0, 2133, 9265]; // 数量
-  var getmyd = ["8.70", "12.85", "12.5"]; //比例
+  var getmyNum = [7862, 219908, 1003620]; // 数量
+  var getmyd = ["20.70", "18.35", "17.86"]; //比例
 
   var option = {
     title: {
-      text: "▎外购蒸汽能耗",
+      text: "▎天然气能耗",
       left: "35px",
       top: "20px",
       textStyle: {
@@ -175,7 +175,7 @@ let initChart = () => {
             fontSize: "26",
             fontFamily: "HarmonyOS Sans-Regular",
           },
-          formatter: "{value}t",
+          formatter: "{value}Nm³",
         },
         data: getmyNum,
       },
@@ -213,12 +213,13 @@ let initChart = () => {
 
   // 内容区域结束
 
-  steamChart.setOption(option);
+  gasChart.setOption(option);
   //自适应
   window.onresize = function () {
     //自适应大小
-    steamChart.resize();
+    gasChart.resize();
   };
+
 
 };
 onMounted(() => {

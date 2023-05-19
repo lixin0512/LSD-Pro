@@ -37,8 +37,8 @@ let initChart = () => {
     grid: {
       left: "15%",
       right: "5%",
-      bottom: "10%",
-      top: "25%",
+      bottom: "5%",
+      top: "30%",
     },
     tooltip: {
       trigger: "axis",
@@ -215,6 +215,10 @@ let initChart = () => {
 
   electricityChart.setOption(option);
   //自适应
+  window.onresize = function () {
+    //自适应大小
+    electricityChart.resize();
+  };
 };
 onMounted(() => {
   initChart();
