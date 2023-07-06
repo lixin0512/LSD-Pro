@@ -27,16 +27,6 @@
 .yield-wrap > div:not(:last-child) {
   margin-right: 8px;
 }
-.yield-dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #fff;
-  position: absolute;
-  top: 78%;
-  left: 69.2%;
-  transform: translate(-50%, -50%);
-}
 </style>
 <template>
   <dv-border-box12 class="com-container">

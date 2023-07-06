@@ -65,20 +65,6 @@ onMounted(() => {
   getCollectTime();
 });
 
-/**请求数据
- * 
- * // 注入全局变量
-const global = inject("global");
- onMounted(async()=>{
-    let result = await global.api.getEcharts();
-   if(result.success){
-     list.value = result.data
-   }else{
-   throw new Error("请求失败");
- }
-    let res = result.data;
- })
- */
 </script>
 
 <style lang="scss">
@@ -155,28 +141,4 @@ const global = inject("global");
   cursor: pointer;
 }
 
-// .setting-line-1 {
-//   height: calc(v-bind(line1H) * 1vh);
-//   border: 1px solid yellow;
-// }
-
-// .setting-line-3 {
-//   height: calc(v-bind(line2H) * 1vh);
-//   border: 1px solid blue;
-// }
-
-// .setting-line-2 {
-//   height: calc(v-bind(line3H) * 1vh);
-//   border: 1px solid green;
-// }
-
-// .setting {
-//    @include bg(red);
-// }
-
-// 定义变量
-
-// .setting{
-//    @include background-black;
-// }
 </style>

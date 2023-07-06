@@ -5,8 +5,8 @@
 }
 .standard{
   position: absolute;
-  top: 52%;
-  left: 83%;
+  top: 51%;
+  left: 82.5%;
   color: lightgreen;
 }
 </style>
@@ -14,7 +14,7 @@
   <dv-border-box12 class="com-container">
     <div id="energy-chart"></div>
     <div class="standard">
-      <el-icon><CaretTop />达标</el-icon>
+      <el-icon><CaretTop /></el-icon><span>达标</span>
     </div>
   </dv-border-box12>
 </template>

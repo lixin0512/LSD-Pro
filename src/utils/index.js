@@ -8,9 +8,9 @@ export function getTimeData() {
   let hh = String(today.getHours()).padStart(2, "0"); //获取当前小时数(0-23)
   let mm = String(today.getMinutes()).padStart(2, "0"); //获取当前分钟数(0-59)
   let ss = String(today.getSeconds()).padStart(2, "0"); //获取当前秒数(0-59)
-  const weekList = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+  const weekList = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
   let weekDay = today.getDay();
-  let week = weekList[weekDay - 1];
+  let week = weekList[weekDay];
   return {
     DD,
     MM,
