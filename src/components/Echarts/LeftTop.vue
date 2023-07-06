@@ -14,11 +14,12 @@
 }
 .yield-wrap > div {
   float: left;
-  width: 80px;
-  height: 100px;
+  padding: 15px 15px;
+  // width: 80px;
+  // height: 100px;
   text-align: center;
-  line-height: 100px;
-  font-size: 48px;
+  // line-height: 100px;
+  font-size: 60px;
   background-color: #001c29;
   opacity: 0.8;
   border: 1px solid #999;

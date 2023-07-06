@@ -121,7 +121,7 @@ let initChart = () => {
             globalCoord: false,
           },
         ],
-        data: [value, value], // data个数代表波浪数
+        data: [value, value], 
         backgroundStyle: {
           borderWidth: 1,
           color: "RGBA(51, 66, 127, 0.7)",

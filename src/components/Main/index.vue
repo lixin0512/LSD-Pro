@@ -33,7 +33,6 @@
    week: "",
    collectTime: "",
  });
- console.log(datetime);
  
  let heightLists = reactive({
    titleH: 6,

@@ -19,7 +19,6 @@ let initChart = () => {
   let chart = document.getElementById("electricity-chart");
   let electricityChart = global.echarts.init(chart);
 
-  // 内容区域开始
   var getmydmc = ["日累计", "月累计", "年累计"]; //名称
   var getmyNum = [13021.0, 103400, 506000]; // 数量
   var getmyd = ["12.70", "15.35", "25.86"]; //比例
@@ -60,22 +59,19 @@ let initChart = () => {
           show: false,
         },
         axisLine: {
-          //y轴
           show: false,
         },
         type: "category",
         axisTick: {
           show: false,
         },
-        inverse: true, // 倒序
-        //boundaryGap: false, // 留白政策
+        inverse: true, 
         data: getmydmc,
         axisLabel: {
-          // color: "rgba(0, 0, 0, 0.65)",
           color: "#fff",
           align: "right",
           verticalAlign: "bottom",
-          padding: [0, 0, 10, 0],
+          padding: [10, 0, 10, 0],
           formatter: (value, index) => {
             let i = getmydmc.indexOf(value);
             if (i === 0) {
@@ -140,11 +136,10 @@ let initChart = () => {
           inside: true,
           align: "left",
           verticalAlign: "bottom",
-          padding: [0, 0, 13, 0],
+          padding: [0, 0, 5, 0],
           textStyle: {
-            // color: "rgba(0, 0, 0, 0.85)",
             color: "#fff",
-            fontSize: "26",
+            fontSize: "20",
             fontFamily: "Source Han Sans CN-Regular",
           },
         },
@@ -166,11 +161,10 @@ let initChart = () => {
         axisLine: "none",
         show: true,
         axisLabel: {
-          padding: [0, 10, 15, 0],
+          padding: [0, 10, 5, 0],
           verticalAlign: "bottom",
           align: "right",
           textStyle: {
-            // color: "rgba(0, 0, 0, 0.85)",
             color: "#fff",
             fontSize: "26",
             fontFamily: "HarmonyOS Sans-Regular",
@@ -184,7 +178,6 @@ let initChart = () => {
       {
         name: "值",
         type: "bar",
-        //zlevel: 1,
         barCategoryGap: "50%", // 柱子距离
         yAxisIndex: 1,
         showBackground: true,
@@ -211,12 +204,9 @@ let initChart = () => {
     ],
   };
 
-  // 内容区域结束
 
   electricityChart.setOption(option);
-  //自适应
   window.onresize = function () {
-    //自适应大小
     electricityChart.resize();
   };
 };

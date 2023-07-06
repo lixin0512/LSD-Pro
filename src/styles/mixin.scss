@@ -10,22 +10,6 @@ $font-big: 1.5rem;
   background-color: $color;
 }
 
-/** 测试
- 定义函数（css 集中样式）
- $red: red;
-@mixin background-black {
-    background-color: #f8f8f8;
-}
-**/
-
-// 使用
-// .use-mixin {
-//   @include: bg(red);
-// }
-
-/**
-* author ctj -- 自定义公用样式
-*/
 //清除浮动
 .clearfix:after {
   height: 0;

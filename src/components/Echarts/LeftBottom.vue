@@ -30,8 +30,6 @@ let initChart = () => {
         fontSize: 20,
       },
     },
-    //你的代码
-//     backgroundColor: "#000",
     tooltip: {
       trigger: "axis",
       backgroundColor: "rgba(1, 13, 19, 0.5)",
@@ -48,19 +46,13 @@ let initChart = () => {
       },
     },
     legend: {
-      // align: 'left',
-      // right: 'center',
-      top: "8%",
-      // type: 'plain',
+      top: "15%",
       textStyle: {
         color: "rgba(212, 232, 254, 1)",
         fontSize: 12,
       },
-      //icon:'icon',
-      // itemGap: 1,
       itemWidth: 10,
       itemHeight: 10,
-      // icon: 'roundRect',
       data: ["自来水", "压缩空气", "蒸汽", "电", "软水"],
     },
     grid: {
@@ -68,21 +60,18 @@ let initChart = () => {
       left: "10%",
       right: "6%",
       bottom: "15%",
-      // containLabel: true
     },
     xAxis: [
       {
         type: "category",
         boundaryGap: false,
         axisLine: {
-          //坐标轴轴线相关设置。数学上的x轴
           show: true,
           lineStyle: {
             color: "rgba(108, 166, 219, 1)",
           },
         },
         axisLabel: {
-          //坐标轴刻度标签的相关设置
           textStyle: {
             color: "rgba(212, 232, 254, 1)",
             padding: 5,
@@ -111,7 +100,6 @@ let initChart = () => {
           color: "rgba(212, 232, 254, 1)",
           fontSize: 12,
         },
-        // min: 0,
         splitLine: {
           lineStyle: {
             color: "rgba(108, 166, 219, 0.5)",
@@ -146,14 +134,14 @@ let initChart = () => {
       {
         name: "自来水",
         type: "line",
-        symbol: "circle", // 默认是空心圆（中间是白色的），改成实心圆
+        symbol: "circle", 
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
           normal: {
             width: 2,
-            color: colors[0], // 线条颜色
+            color: colors[0], 
           },
           borderColor: "rgba(0,0,0,.4)",
         },
@@ -170,14 +158,14 @@ let initChart = () => {
       {
         name: "压缩空气",
         type: "line",
-        symbol: "circle", // 默认是空心圆（中间是白色的），改成实心圆
+        symbol: "circle", 
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
           normal: {
             width: 2,
-            color: colors[1], // 线条颜色
+            color: colors[1], 
           },
           borderColor: "rgba(0,0,0,.4)",
         },
@@ -194,7 +182,7 @@ let initChart = () => {
       {
         name: "蒸汽",
         type: "line",
-        symbol: "circle", // 默认是空心圆（中间是白色的），改成实心圆
+        symbol: "circle", 
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
@@ -218,14 +206,14 @@ let initChart = () => {
       {
         name: "电",
         type: "line",
-        symbol: "circle", // 默认是空心圆（中间是白色的），改成实心圆
+        symbol: "circle", 
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
           normal: {
             width: 2,
-            color: "#FFA200", // 线条颜色
+            color: "#FFA200", 
           },
           borderColor: "rgba(0,0,0,.4)",
         },
@@ -242,14 +230,14 @@ let initChart = () => {
       {
         name: "软水",
         type: "line",
-        symbol: "circle", // 默认是空心圆（中间是白色的），改成实心圆
+        symbol: "circle", 
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
           normal: {
             width: 2,
-            color: "#ddd", // 线条颜色
+            color: "#ddd", 
           },
           borderColor: "rgba(0,0,0,.4)",
         },
@@ -267,9 +255,7 @@ let initChart = () => {
   };
 
   mediumChart.setOption(option);
-  //自适应
   window.onresize = function () {
-    //自适应大小
     mediumChart.resize();
   };
 };

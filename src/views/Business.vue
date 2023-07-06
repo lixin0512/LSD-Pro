@@ -27,7 +27,6 @@
   position: relative;
   // 后面加的下边距
   margin-bottom: 10px;
-  // background: #001c29;
   background-color: #161522;
 
   > div {
@@ -113,7 +112,6 @@ const getCollectTime = () => {
     const { DD, MM, yyyy, hh, mm, ss, week } = getTimeData();
     datetime.date = `${yyyy}-${MM}-${DD}`;
     datetime.time = `${hh}:${mm}:${ss}`;
-    console.log('week', week);
     datetime.week = `${week}`;
     let times = Date.now() - 24 * 60 * 60 * 1000; // ms
     let dateString = new Date(times).toLocaleString().split(",")[0];

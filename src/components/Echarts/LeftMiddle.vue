@@ -3,23 +3,11 @@
   width: 100%;
   height: 100%;
 }
-.depart-decoration {
-  // width: 124px;//全屏
-  // height: 124px;//全屏
-  // top: 140px; //全屏
-  // left: 40%;//全屏
-  left: 39%;
-  width: 140px;
-  height: 140px;
-  top: 155px;
 
-  position: absolute;
-}
 </style>
 <template>
   <dv-border-box12 class="com-container">
     <div id="depart-chart"></div>
-    <dv-decoration-12 class="depart-decoration" />
   </dv-border-box12>
 </template>
 
