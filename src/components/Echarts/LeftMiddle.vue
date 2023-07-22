@@ -56,7 +56,7 @@ let initChart = () => {
     legend: {
       orient: "horizontal",
       x: "center", //水平位置，【left\center\right\数字】
-      y: "90%", //垂直位置，【top\center\bottom\数字】
+      y: "91%", //垂直位置，【top\center\bottom\数字】
       textStyle: {
         fontSize: 14,
         color: "#fff",

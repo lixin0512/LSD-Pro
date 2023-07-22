@@ -19,13 +19,9 @@ let initChart = () => {
   let chart = document.getElementById("water-chart");
   let waterChart = global.echarts.init(chart);
 
-  var getmydmc = ["日累计", "月累计", "年累计"]; //名称
-  var getmyNum = [502, 12210, 19325]; // 数量
-  var getmyd = ["15.70", "13.35", "10.86"]; //比例
-
-  var option = {
-    title: {
-      text: "▎自来水能耗",
+  var  option = {
+  title: {
+      text: "▎单箱水耗",
       left: "35px",
       top: "20px",
       textStyle: {
@@ -33,176 +29,123 @@ let initChart = () => {
         fontSize: 20,
       },
     },
-    grid: {
-      left: "15%",
-      right: "5%",
-      bottom: "5%",
-      top: "30%",
+    yAxis: [{
+        type: 'category',
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            show:false
+        }
+    }, {
+        type: 'category',
+        data: [''],
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            show:false
+        }
+      }
+    ],
+    xAxis: {
+        type: 'value',
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel :{
+					fontSize: 14
+				}
     },
     tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        type: "none",
-      },
-      formatter: function (params) {
-        return params[0].name + ": " + params[0].value + "%";
-      },
+        formatter: '{a}: {c}'
     },
-    xAxis: {
-      show: false,
-      type: "value",
-      max: 100,
+    legend: {
+        data: ['差', '良', '优', '实际值', {
+            name: '目标值',
+            icon: 'path://M0 0M443.733333 0 h145.066667 v1024 H443.733333z'
+        }],
+        selectedMode: false,
+        top:50,
+        color:"#c0c0c0",
     },
-    yAxis: [
-      {
-        splitLine: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        type: "category",
-        axisTick: {
-          show: false,
-        },
-        inverse: true, 
-        data: getmydmc,
-        axisLabel: {
-          color: "#fff",
-          align: "right",
-          verticalAlign: "bottom",
-          padding: [10, 0, 10, 0],
-          formatter: (value, index) => {
-            let i = getmydmc.indexOf(value);
-            if (i === 0) {
-              return `{lg1|${i + 1}}`;
-            } else if (i === 1) {
-              return `{lg2|${i + 1}}`;
-            } else if (i === 2) {
-              return `{lg3|${i + 1}}`;
-            } else {
-              return `{lg|${i + 1}}`;
-            }
-          },
-          rich: {
-            lg1: {
-              backgroundColor: "#FF4D4F",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              width: 46,
-              fontSize: 26,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg2: {
-              backgroundColor: "#FF7A45",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              width: 46,
-              fontSize: 26,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg3: {
-              backgroundColor: "#FAAD14",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              fontSize: 26,
-              width: 46,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg: {
-              backgroundColor: "#D5E3EB",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              fontSize: 26,
-              width: 46,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-          },
-        },
-      },
-      {
-        type: "category",
-        inverse: true,
-        position: "left",
-        axisLabel: {
-          inside: true,
-          align: "left",
-          verticalAlign: "bottom",
-          padding: [0, 0, 5, 0],
-          textStyle: {
-            color: "#fff",
-            fontSize: "20",
-            fontFamily: "Source Han Sans CN-Regular",
-          },
-        },
-        splitLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        data: getmydmc,
-      },
-      {
-        type: "category",
-        inverse: true,
-        axisTick: "none",
-        axisLine: "none",
-        show: true,
-        axisLabel: {
-          padding: [0, 10, 5, 0],
-          verticalAlign: "bottom",
-          align: "right",
-          textStyle: {
-            color: "#fff",
-            fontSize: "26",
-            fontFamily: "HarmonyOS Sans-Regular",
-          },
-          formatter: "{value}m³",
-        },
-        data: getmyNum,
-      },
-    ],
+    grid: {
+        containLabel: true,
+        width: "90%",
+        height: 50,
+        left: "5%",
+        top: 80
+    },
+    series: [{
+        name: "差",
+        data: [0.5],
+        type: 'bar',
+        yAxisIndex: 0,
+        stack: "range",
+        silent: true,
+        barWidth: 20,
+        color: "#F5B4AE",
+    }, {
+        name: "良",
+        data: [0.3],
+        type: 'bar',
+        yAxisIndex: 0,
+        stack: "range",
+        silent: true,
+        barWidth: 20,
+        color: "#BFE9C3"
+    }, {
+        name: "优",
+        data: [0.2],
+        type: 'bar',
+        yAxisIndex: 0,
+        stack: "range",
+        silent: true,
+        barWidth: 20,
+        color: "#F5B4AE"
+    }, {
+        name: "实际值",
+        data: [0.61],
+        type: 'bar',
+        yAxisIndex: 1,
+        barWidth: 10,
+        color: "#434778",
+        z: 4,
+
+    }, {
+        name: "目标值",
+        type: "scatter",
+        symbol: "rect",
+        symbolSize: [4, 30],
+        data: [0.7],
+        color: "#00c000",
+        hoverAnimation:false,
+        z: 5
+    }]
+};
+
+setInterval(function () {
+  myChart.setOption({
     series: [
       {
-        name: "值",
-        type: "bar",
-        barCategoryGap: "50%",
-        yAxisIndex: 1,
-        showBackground: true,
-        backgroundStyle: {
-          color: "rgba(239, 242, 247, 1)",
-          borderRadius: [0, 5, 5, 0],
-        },
-        itemStyle: {
-          color: global.echarts.graphic.LinearGradient(0, 0, 1, 0, [
-            {
-              offset: 0,
-              color: "#4890E5",
-            },
-            {
-              offset: 1,
-              color: "#2BB6FA",
-            },
-          ]),
-          barBorderRadius: [5, 5, 5, 5],
-        },
-        barWidth: 10,
-        data: getmyd,
-      },
-    ],
-  };
+        data: [
+          {
+            value: +(Math.random() * 100).toFixed(2)
+          }
+        ]
+      }
+    ]
+  });
+}, 2000);
 
   waterChart.setOption(option);
   window.onresize = function () {

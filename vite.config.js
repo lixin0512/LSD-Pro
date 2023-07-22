@@ -11,7 +11,7 @@ export default defineConfig({
   mode: "development", // 开发模式
   //配置代理,解决跨域问题
   server: {
-    host: "localhost",
+    host: "0.0.0.0",
     port: 8088,
     hmr: true, //热更新
     open: true,

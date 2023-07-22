@@ -6,7 +6,7 @@
 // 数字显示框
 .yield-wrap {
   width: 100%;
-  height: 100px;
+  height: 60px;
   position: absolute;
   top: 32%;
   // left: 12%;
@@ -14,7 +14,7 @@
 }
 .yield-wrap > div {
   float: left;
-  padding: 15px 15px;
+  padding: 5px 5px;
   // width: 80px;
   // height: 100px;
   text-align: center;
@@ -46,7 +46,7 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 
 const global = inject("global");
 
-let yieldnum = ref('123510');
+let yieldnum = ref('2381965');
 let yieldArr = yieldnum.value.toString().split("");
 
 let initChart = () => {
@@ -54,7 +54,7 @@ let initChart = () => {
   let yieldChart = global.echarts.init(chart);
   let option = {
     title: {
-      text: "▎本年度产量（箱）",
+      text: "▎标煤年累计(kgce)",
       left: "35px",
       top: "20px",
       textStyle: {

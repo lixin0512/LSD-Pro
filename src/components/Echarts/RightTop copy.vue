@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
-#steam-chart {
+#water-chart {
   width: 100%;
   height: 100%;
 }
 </style>
 <template>
   <dv-border-box12 class="com-container">
-    <div id="steam-chart"></div>
+    <div id="water-chart"></div>
   </dv-border-box12>
 </template>
 
@@ -16,14 +16,14 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 const global = inject("global");
 
 let initChart = () => {
-  let chart = document.getElementById("steam-chart");
-  let steamChart = global.echarts.init(chart);
+  let chart = document.getElementById("water-chart");
+  let waterChart = global.echarts.init(chart);
 
   var option = {
     title: {
-      text: "▎重复用水率",
-      left: "35px",
-      top: "20px",
+      text: "▎单箱耗水",
+      left: "135px",
+      top: "0px",
       textStyle: {
         color: "#fff",
         fontSize: 20,
@@ -37,8 +37,8 @@ let initChart = () => {
         lineStyle: {
           width: 20,
           color: [
-            [0.6, '#fd666d'],
-            [0.9, '#40c040'],
+            [0.5, '#fd666d'],
+            [0.8, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -70,18 +70,18 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param
+			                    return param/100
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '76',
+        formatter: '0.70',
         color: 'inherit'
       },
       data: [
         {
-          value: 76
+          value: 70
         }
       ]
     },
@@ -92,8 +92,8 @@ let initChart = () => {
         lineStyle: {
           width: 20,
           color: [
-            [0.6, '#fd666d'],
-            [0.9, '#40c040'],
+            [0.5, '#fd666d'],
+            [0.8, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -125,29 +125,43 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param
+			                    return param/100
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '78',
+        formatter: '0.68',
         color: 'inherit'
       },
       data: [
         {
-          value: 78
+          value: 68
         }
       ]
     }    
   ]
 };
 
+setInterval(function () {
+  myChart.setOption({
+    series: [
+      {
+        data: [
+          {
+            value: +(Math.random() * 100).toFixed(2)
+          }
+        ]
+      }
+    ]
+  });
+}, 2000);
 
-  steamChart.setOption(option);
+  waterChart.setOption(option);
   window.onresize = function () {
-    steamChart.resize();
+    waterChart.resize();
   };
+
 
 };
 onMounted(() => {

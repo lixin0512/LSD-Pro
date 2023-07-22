@@ -86,7 +86,7 @@
       <!--
       <span class="logo"> 采集时间: {{ datetime.collectTime }} </span>
       -->
-      <span class="title">楚雄卷烟厂动力车间实时监控平台</span>
+      <span class="title">楚雄卷烟厂动力车间实时监控</span>
       <div class="title-right">
         <TimeModal :datetime="datetime"></TimeModal>
       </div>

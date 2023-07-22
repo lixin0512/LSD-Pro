@@ -1,9 +1,8 @@
 <!-- 时间组件 -->
 <template>
     <div class="date-box">
-        <div class="date-time" > {{ props.datetime.time }} </div>
         <div class="date-date">
-            {{ props.datetime.date }}&nbsp;<span class="date-day">|&nbsp;{{ props.datetime.week }}</span>
+            {{ props.datetime.date }}&nbsp;<span class="date-day">&nbsp;{{ props.datetime.week }}</span>&nbsp;|&nbsp;<span class="date-day">{{ props.datetime.time }}</span>
         </div>
     </div>
 </template>
@@ -24,8 +23,9 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.date-time{
-    font-size: 26px;
+.date-box{
+    margin-top: 12px;
+    font-size: 24px;
 }
 </style>
       

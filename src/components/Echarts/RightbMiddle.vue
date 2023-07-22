@@ -20,13 +20,10 @@ let initChart = () => {
   let gasChart = global.echarts.init(chart);
 
   // 内容区域开始
-  var getmydmc = ["日累计", "月累计", "年累计"]; //名称
-  var getmyNum = [7862, 219908, 1003620]; // 数量
-  var getmyd = ["20.70", "18.35", "17.86"]; //比例
 
   var option = {
     title: {
-      text: "▎天然气能耗",
+      text: "▎吨烟复烤用水",
       left: "35px",
       top: "20px",
       textStyle: {
@@ -34,176 +31,119 @@ let initChart = () => {
         fontSize: 20,
       },
     },
-    grid: {
-      left: "15%",
-      right: "5%",
-      bottom: "5%",
-      top: "30%",
-    },
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        type: "none",
-      },
-      formatter: function (params) {
-        return params[0].name + ": " + params[0].value + "%";
-      },
-    },
-    xAxis: {
-      show: false,
-      type: "value",
-      max: 100,
-    },
-    yAxis: [
-      {
-        splitLine: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        type: "category",
-        axisTick: {
-          show: false,
-        },
-        inverse: true,
-        data: getmydmc,
-        axisLabel: {
-          color: "#fff",
-          align: "right",
-          verticalAlign: "bottom",
-          padding: [0, 0, 10, 0],
-          formatter: (value, index) => {
-            let i = getmydmc.indexOf(value);
-            if (i === 0) {
-              return `{lg1|${i + 1}}`;
-            } else if (i === 1) {
-              return `{lg2|${i + 1}}`;
-            } else if (i === 2) {
-              return `{lg3|${i + 1}}`;
-            } else {
-              return `{lg|${i + 1}}`;
-            }
-          },
-          rich: {
-            lg1: {
-              backgroundColor: "#FF4D4F",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              width: 46,
-              fontSize: 26,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg2: {
-              backgroundColor: "#FF7A45",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              width: 46,
-              fontSize: 26,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg3: {
-              backgroundColor: "#FAAD14",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              fontSize: 26,
-              width: 46,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-            lg: {
-              backgroundColor: "#D5E3EB",
-              color: "#FFFFFF",
-              borderRadius: [16, 0, 16, 0],
-              align: "center",
-              padding: [5, 0, 0, 0],
-              fontSize: 26,
-              width: 46,
-              fontFamily: "Source Han Sans CN-Regular",
-            },
-          },
-        },
-      },
-      {
-        type: "category",
-        inverse: true,
-        position: "left",
-        axisLabel: {
-          inside: true,
-          align: "left",
-          verticalAlign: "bottom",
-          padding: [0, 0, 5, 0],
-          textStyle: {
-            color: "#fff",
-            fontSize: "20",
-            fontFamily: "Source Han Sans CN-Regular",
-          },
-        },
-        splitLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        data: getmydmc,
-      },
-      {
-        type: "category",
-        inverse: true,
-        axisTick: "none",
-        axisLine: "none",
-        show: true,
-        axisLabel: {
-          padding: [0, 10, 5, 0],
-          verticalAlign: "bottom",
-          align: "right",
-          textStyle: {
-            color: "#fff",
-            fontSize: "26",
-            fontFamily: "HarmonyOS Sans-Regular",
-          },
-          formatter: "{value}Nm³",
-        },
-        data: getmyNum,
-      },
-    ],
     series: [
-      {
-        name: "值",
-        type: "bar",
-        barCategoryGap: "50%", // 柱子距离
-        yAxisIndex: 1,
-        showBackground: true,
-        backgroundStyle: {
-          color: "rgba(239, 242, 247, 1)",
-          borderRadius: [0, 5, 5, 0],
-        },
-        itemStyle: {
-          color: global.echarts.graphic.LinearGradient(0, 0, 1, 0, [
-            {
-              offset: 0,
-              color: "#4890E5",
-            },
-            {
-              offset: 1,
-              color: "#2BB6FA",
-            },
-          ]),
-          barBorderRadius: [5, 5, 5, 5],
-        },
-        barWidth: 10,
-        data: getmyd,
+    {
+      type: 'gauge',
+      center: ["30%", "60%"],
+      axisLine: {
+        lineStyle: {
+          width: 20,
+          color: [
+            [0.2, '#fd666d'],
+            [0.4, '#40c040'],
+            [1, '#fd666d']
+          ]
+        }
       },
-    ],
-  };
+      pointer: {
+        itemStyle: {
+          color: 'auto'
+        }
+      },
+      axisTick: {
+        distance: -20,
+        length: 8,
+        lineStyle: {
+          color: '#fff',
+          width: 2
+        }
+      },
+      splitLine: {
+        distance: -20,
+        length: 20,
+        lineStyle: {
+          color: '#fff',
+          width: 4
+        }
+      },
+      axisLabel: {
+        color: 'inherit',
+        distance: 30,
+        fontSize: 12,
+        formatter:function(param){
+			                if ((param % 10)==0) {
+			                    return param/10
+			                }
+                    }
+      },
+      detail: {
+        valueAnimation: true,
+        formatter: '3.0',
+        color: 'inherit'
+      },
+      data: [
+        {
+          value: 30
+        }
+      ]
+    },
+    {
+      type: 'gauge',
+      center: ["70%", "60%"],
+      axisLine: {
+        lineStyle: {
+          width: 20,
+          color: [
+            [0.2, '#fd666d'],
+            [0.4, '#40c040'],
+            [1, '#fd666d']
+          ]
+        }
+      },
+      pointer: {
+        itemStyle: {
+          color: 'auto'
+        }
+      },
+      axisTick: {
+        distance: -20,
+        length: 8,
+        lineStyle: {
+          color: '#fff',
+          width: 2
+        }
+      },
+      splitLine: {
+        distance: -20,
+        length: 20,
+        lineStyle: {
+          color: '#fff',
+          width: 4
+        }
+      },
+      axisLabel: {
+        color: 'inherit',
+        distance: 30,
+        fontSize: 12,
+        formatter:function(param){
+			                if ((param % 10)==0) {
+			                    return param/10
+			                }
+                    }
+      },
+      detail: {
+        valueAnimation: true,
+        formatter: '3.2',
+        color: 'inherit'
+      },
+      data: [
+        {
+          value: 32
+        }
+      ]
+    }    
+  ]
+};
 
 
   gasChart.setOption(option);

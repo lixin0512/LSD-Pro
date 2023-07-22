@@ -10,7 +10,15 @@ const routes = [
     // this generates a separate chunk (business.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "business" */ '../views/Business.vue')
-  }
+  },
+  {
+    path: '/businesstht',
+    name: 'businesstht',
+    // route level code-splitting
+    // this generates a separate chunk (business.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "business" */ '../views/Businesstht.vue')
+  },
 ]
 
 const router = createRouter({
