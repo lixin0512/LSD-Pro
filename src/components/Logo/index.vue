@@ -1,25 +1,4 @@
-
-<style lang="scss">
-.screen-container {
-  width: 100%;
-  padding: 0 20px;
-  background-color: #161522;
-  color: #fff;
-  box-sizing: border-box;
-}
-
-.fullscreen {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-color: #161522;
-  color: #fff;
-  margin: 0 !important;
-  z-index: 9999;
-}
-
+<style lang="scss" scoped>
 .screen-header {
   width: 100%;
   height: 64px;
@@ -39,7 +18,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    font-size: 30px;
+    font-size: 40px;
     letter-spacing: 1.5px;
     transform: translate(-50%, -50%);
   }
@@ -48,13 +27,7 @@
     text-align: center;
     position: absolute;
     right: 10px;
-    top: 5%;
-  }
-
-  .qiehuan {
-    width: 28px;
-    height: 21px;
-    cursor: pointer;
+    top: 25px;
   }
 
   .logo {
@@ -76,37 +49,35 @@
   cursor: pointer;
 }
 </style>
-
 <template>
-  <div class="screen-container">
-    <header class="screen-header">
-      <div>
-        <img src="@/assets/images/header_border_dark.png" alt="" />
-      </div>
-      <!--
-      <span class="logo"> 采集时间: {{ datetime.collectTime }} </span>
-      -->
-      <span class="title">楚雄卷烟厂动力车间实时监控平台</span>
-      <div class="title-right">
-        <TimeModal :datetime="datetime"></TimeModal>
-      </div>
-    </header>
-    <Echarts></Echarts>
-  </div>
+  <header class="screen-header">
+    <div>
+      <img src="@/assets/images/header_border_dark.png" alt="" />
+    </div>
+    <span class="title">{{ name }}</span>
+    <div class="title-right">
+      <TimeModal :datetime="datetime"></TimeModal>
+    </div>
+  </header>
 </template>
 
 <script setup>
-import { ref, reactive, toRefs, onMounted, computed, inject } from "vue";
-import TimeModal from "comps/timeModal.vue";
-import Echarts from "comps/Echarts/index.vue";
+import TimeModal from "./TimeModal.vue";
+import { reactive, onMounted } from "vue";
 import { getTimeData } from "@/utils";
 // 注入全局变量
-const global = inject("global");
 let datetime = reactive({
   date: "",
   time: "",
   week: "",
   collectTime: "",
+});
+
+let nameProps = defineProps({
+  name: {
+    type: String,
+    default: "",
+  },
 });
 
 const getCollectTime = () => {
@@ -122,8 +93,9 @@ const getCollectTime = () => {
       "年" +
       dateString.split("/")[0] +
       "月" +
-      dateString.split("/")[1] + "日";
-      datetime.collectTime = dateString
+      dateString.split("/")[1] +
+      "日";
+    datetime.collectTime = dateString;
   }, 1000);
 };
 

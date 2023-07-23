@@ -1,34 +1,31 @@
-<!-- 07-20所作备份 -->>
 <style lang="scss" scoped>
 #energy-chart {
   width: 100%;
   height: 100%;
 }
-.icon2{
+.icon2 {
   position: absolute;
-  top: 51%;
+  top: 61%;
   left: 87%;
   font-size: 24px;
   color: lightgreen;
 }
-.standard{
+.standard {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 91%;
   font-size: 24px;
   color: lightgreen;
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="energy-chart"></div>
-    <div class="icon2">
-      <el-icon ><Select /></el-icon>
-    </div>    
-    <div class="standard">
-      <span> 达标</span>
-    </div>
-  </dv-border-box12>
+  <div id="energy-chart"></div>
+  <div class="icon2">
+    <el-icon><Select /></el-icon>
+  </div>
+  <div class="standard">
+    <span> 达标</span>
+  </div>
 </template>
 
 <script setup>
@@ -43,25 +40,21 @@ let initChart = () => {
 
   // 内容区域开始
 
-  var value = 0.5;
-  var value1 = 0.45;
-  var data = [value, value1];
   var option = {
     // backgroundColor: "#0F224C",
     title: [
-      {
-        text: "▎综合能耗",
-        left: "35px",
-        top: "20px",
-        textStyle: {
-          color: "#fff",
-          fontSize: 20,
-        },
-      },
+      // {
+      //   text: "▎综合能耗",
+      //   left: "35px",
+      //   top: "20px",
+      //   textStyle: {
+      //     color: "#fff",
+      //     fontSize: 20,
+      //   },
+      // },
       {
         text: "2381965 kgce",
         top: "38%",
-        // top: "28%",
         left: "67%",
         textStyle: {
           fontSize: 32,
@@ -71,7 +64,6 @@ let initChart = () => {
       },
       {
         text: "万支累进",
-        // x: "18%",
         x: "14.5%",
         y: "72%",
         textStyle: {
@@ -84,7 +76,6 @@ let initChart = () => {
       },
       {
         text: "万支当月",
-        // x: "18%",
         x: "44.5%",
         y: "72%",
         textStyle: {
@@ -95,7 +86,6 @@ let initChart = () => {
           textAlign: "center",
         },
       },
-
     ],
     series: [
       {
@@ -122,17 +112,17 @@ let initChart = () => {
             globalCoord: false,
           },
         ],
-        data: [value, value], 
+        data: [0.5, 0.45],
         backgroundStyle: {
           borderWidth: 1,
           color: "RGBA(51, 66, 127, 0.7)",
         },
         label: {
-          formatter: '2.02\n',
+          formatter: "2.02\n",
           fontSize: 48,
           color: "#fff",
           fontWeight: "500",
-          top:100,
+          top: 100,
         },
         outline: {
           // show: false
@@ -167,17 +157,17 @@ let initChart = () => {
             globalCoord: false,
           },
         ],
-        data: [value, value], 
+        data: [0.5, 0.5],
         backgroundStyle: {
           borderWidth: 1,
           color: "RGBA(51, 66, 127, 0.7)",
         },
         label: {
-          formatter: '2.12\n',
+          formatter: "2.12\n",
           fontSize: 48,
           color: "#fff",
           fontWeight: "500",
-          top:100,
+          top: 100,
         },
         outline: {
           // show: false

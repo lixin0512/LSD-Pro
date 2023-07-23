@@ -10,6 +10,7 @@ import * as Elicons from "@element-plus/icons-vue";
 import "element-plus/theme-chalk/el-loading.css";
 import "element-plus/theme-chalk/el-message.css";
 import * as echarts  from "echarts";
+import autofit from 'autofit.js'
 import { v4 as uuidv4 } from "uuid";
 import 'animate.css';
 import DataVVue3 from '@kjgl77/datav-vue3'
@@ -18,7 +19,7 @@ import 'echarts-liquidfill'
 import VueParticles from 'vue-particles'
 
 
-
+autofit.init();
 const app = createApp(App);
 
 Object.keys(Elicons).forEach((key) => {

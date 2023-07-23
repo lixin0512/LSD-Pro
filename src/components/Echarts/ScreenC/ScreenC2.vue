@@ -1,13 +1,11 @@
 <style lang="scss" scoped>
-#water-chart {
+#electricity-chart {
   width: 100%;
   height: 100%;
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="water-chart"></div>
-  </dv-border-box12>
+    <div id="electricity-chart"></div>
 </template>
 
 <script setup>
@@ -16,29 +14,30 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 const global = inject("global");
 
 let initChart = () => {
-  let chart = document.getElementById("water-chart");
-  let waterChart = global.echarts.init(chart);
+  let chart = document.getElementById("electricity-chart");
+  let electricityChart = global.echarts.init(chart);
+
 
   var option = {
-    title: {
-      text: "▎单箱耗水",
-      left: "135px",
-      top: "0px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
+    // title: {
+    //   text: "▎吨烟综合能耗",
+    //   left: "35px",
+    //   top: "20px",
+    //   textStyle: {
+    //     color: "#fff",
+    //     fontSize: 20,
+    //   },
+    // },
     series: [
     {
       type: 'gauge',
-      center: ["30%", "60%"],
+      center: ["30%", "45%"],
       axisLine: {
         lineStyle: {
           width: 20,
           color: [
-            [0.5, '#fd666d'],
-            [0.8, '#40c040'],
+            [0.7, '#fd666d'],
+            [0.9, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -70,30 +69,30 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param/100
+			                    return param
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '0.70',
+        formatter: '87.3',
         color: 'inherit'
       },
       data: [
         {
-          value: 70
+          value: 87.3
         }
       ]
     },
     {
       type: 'gauge',
-      center: ["70%", "60%"],
+      center: ["70%", "45%"],
       axisLine: {
         lineStyle: {
           width: 20,
           color: [
-            [0.5, '#fd666d'],
-            [0.8, '#40c040'],
+            [0.7, '#fd666d'],
+            [0.9, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -125,44 +124,28 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param/100
+			                    return param
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '0.68',
+        formatter: '86.6',
         color: 'inherit'
       },
       data: [
         {
-          value: 68
+          value: 86.6
         }
       ]
     }    
   ]
 };
 
-setInterval(function () {
-  myChart.setOption({
-    series: [
-      {
-        data: [
-          {
-            value: +(Math.random() * 100).toFixed(2)
-          }
-        ]
-      }
-    ]
-  });
-}, 2000);
-
-  waterChart.setOption(option);
+  electricityChart.setOption(option);
   window.onresize = function () {
-    waterChart.resize();
+    electricityChart.resize();
   };
-
-
 };
 onMounted(() => {
   initChart();

@@ -1,13 +1,11 @@
 <style lang="scss" scoped>
-#steam-chart {
+#gas-chart {
   width: 100%;
   height: 100%;
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="steam-chart"></div>
-  </dv-border-box12>
+    <div id="gas-chart"></div>
 </template>
 
 <script setup>
@@ -16,29 +14,31 @@ import { ref, reactive, toRefs, onMounted, inject } from "vue";
 const global = inject("global");
 
 let initChart = () => {
-  let chart = document.getElementById("steam-chart");
-  let steamChart = global.echarts.init(chart);
+  let chart = document.getElementById("gas-chart");
+  let gasChart = global.echarts.init(chart);
+
+  // 内容区域开始
 
   var option = {
-    title: {
-      text: "▎重复用水率",
-      left: "35px",
-      top: "20px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
+    // title: {
+    //   text: "▎吨烟复烤用水",
+    //   left: "35px",
+    //   top: "20px",
+    //   textStyle: {
+    //     color: "#fff",
+    //     fontSize: 20,
+    //   },
+    // },
     series: [
     {
       type: 'gauge',
-      center: ["30%", "60%"],
+      center: ["30%", "45%"],
       axisLine: {
         lineStyle: {
           width: 20,
           color: [
-            [0.6, '#fd666d'],
-            [0.9, '#40c040'],
+            [0.2, '#fd666d'],
+            [0.4, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -70,30 +70,30 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param
+			                    return param/10
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '76',
+        formatter: '3.0',
         color: 'inherit'
       },
       data: [
         {
-          value: 76
+          value: 30
         }
       ]
     },
     {
       type: 'gauge',
-      center: ["70%", "60%"],
+      center: ["70%", "45%"],
       axisLine: {
         lineStyle: {
           width: 20,
           color: [
-            [0.6, '#fd666d'],
-            [0.9, '#40c040'],
+            [0.2, '#fd666d'],
+            [0.4, '#40c040'],
             [1, '#fd666d']
           ]
         }
@@ -125,18 +125,18 @@ let initChart = () => {
         fontSize: 12,
         formatter:function(param){
 			                if ((param % 10)==0) {
-			                    return param
+			                    return param/10
 			                }
                     }
       },
       detail: {
         valueAnimation: true,
-        formatter: '78',
+        formatter: '3.2',
         color: 'inherit'
       },
       data: [
         {
-          value: 78
+          value: 32
         }
       ]
     }    
@@ -144,10 +144,11 @@ let initChart = () => {
 };
 
 
-  steamChart.setOption(option);
+  gasChart.setOption(option);
   window.onresize = function () {
-    steamChart.resize();
+    gasChart.resize();
   };
+
 
 };
 onMounted(() => {

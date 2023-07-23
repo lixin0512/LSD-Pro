@@ -1,23 +1,20 @@
 import { createRouter, createWebHashHistory, createRouterMatcher } from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
+import Screen from '../views/Screen.vue'
 // import HomeView from '@/layout/HomeView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'business',
-    // route level code-splitting
-    // this generates a separate chunk (business.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "business" */ '../views/Business.vue')
+    name: 'screen',
+    component: Screen
   },
   {
-    path: '/businesstht',
-    name: 'businesstht',
+    path: '/screentht',
+    name: 'screentht',
     // route level code-splitting
-    // this generates a separate chunk (business.[hash].js) for this route
+    // this generates a separate chunk (screentht.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "business" */ '../views/Businesstht.vue')
+    component: () => import(/* webpackChunkName: "screentht" */ '../views/Screentht.vue')
   },
 ]
 

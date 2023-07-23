@@ -12,8 +12,6 @@
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="cop-chart"></div>
     <dv-scroll-board
       class="cop-scroll-board"
       :config="config"
@@ -21,7 +19,6 @@
       @mouseover="mouseoverHandler"
       @click="clickHandler"
     />
-  </dv-border-box12>
 </template>
 
 <script setup>
@@ -60,34 +57,4 @@ const clickHandler = (e) => {
 };
 //滚屏区域结束
 
-let initChart = () => {
-  let chart = document.getElementById("cop-chart");
-  let copChart = global.echarts.init(chart);
-
-  // 内容区域开始
-  let option = {
-    title: {
-      text: "▎设备智能分析",
-      left: "35px",
-      top: "20px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
-  };
-
-  // 内容区域结束
-
-  copChart.setOption(option);
-
-  //自适应
-  window.onresize = function () {
-    //自适应大小
-    copChart.resize();
-  };
-};
-onMounted(() => {
-  initChart();
-});
 </script>

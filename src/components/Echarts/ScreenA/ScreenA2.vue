@@ -6,9 +6,7 @@
 
 </style>
 <template>
-  <dv-border-box12 class="com-container">
     <div id="depart-chart"></div>
-  </dv-border-box12>
 </template>
 
 <script setup>
@@ -41,22 +39,22 @@ let initChart = () => {
   ];
   let option = {
     color: color,
-    title: {
-      text: "▎各部门能耗占比",
-      left: "35px",
-      top: "20px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
+   //  title: {
+   //    text: "▎各部门能耗占比",
+   //    left: "35px",
+   //    top: "20px",
+   //    textStyle: {
+   //      color: "#fff",
+   //      fontSize: 20,
+   //    },
+   //  },
     tooltip: {
       trigger: "item",
     },
     legend: {
       orient: "horizontal",
       x: "center", //水平位置，【left\center\right\数字】
-      y: "91%", //垂直位置，【top\center\bottom\数字】
+      y: "5%", //垂直位置，【top\center\bottom\数字】
       textStyle: {
         fontSize: 14,
         color: "#fff",

@@ -1,133 +1,98 @@
 <template>
   <div class="screen-body">
     <section class="screen-left">
-      <div class="left-top">
-        <Left-top></Left-top>
-      </div>
-      <div class="left-middle">
-        <Left-middle></Left-middle>
-      </div>
-      <div class="left-bottom">
-        <Left-bottom></Left-bottom>
-      </div>
+      <dv-border-box13 class="screen-a1">
+        <Title/>
+        <Screen-a1></Screen-a1>
+      </dv-border-box13>
+      <dv-border-box12 class="screen-a2">
+        <Title :titlename="a2name"/>
+        <Screen-a2></Screen-a2>
+      </dv-border-box12>
+      <dv-border-box12 class="screen-a3">
+        <Title :titlename="a3name"/>
+        <Screen-a3></Screen-a3>
+      </dv-border-box12>
     </section>
     <section class="screen-middle">
-      <div class="middle-top">
-        <Middle-top></Middle-top>
-      </div>
-      <div class="middle-bottom">
-        <Middle-bottom></Middle-bottom>
-      </div>
+      <dv-border-box12 class="screen-b1">
+        <Title :titlename="b1name"/>
+        <Screen-b1></Screen-b1>
+      </dv-border-box12>
+      <dv-border-box12 class="screen-b2">
+        <Title :titlename="b2name"/>
+        <Screen-b2></Screen-b2>
+      </dv-border-box12>
     </section>
     <section class="screen-right">
-      <div class="right-top">
-        <Right-top></Right-top>
-      </div>
-      <div class="right-middle">
-        <Right-middle></Right-middle>
-      </div>
-      <div class="right-bmiddle">
-        <Rightb-middle></Rightb-middle>
-      </div>
-      <div class="right-bottom">
-        <Right-bottom></Right-bottom>
-      </div>
+      <dv-border-box12 class="screen-c1">
+        <Title :titlename="c1name"/>
+        <Screen-c1></Screen-c1>
+      </dv-border-box12>
+      <dv-border-box12 class="screen-c2">
+        <Title  :titlename="c2name"/>
+        <Screen-c2></Screen-c2>
+      </dv-border-box12>
+      <dv-border-box12 class="screen-c3">
+        <Title  :titlename="c3name"/>
+        <Screen-c3></Screen-c3>
+      </dv-border-box12>
+      <dv-border-box12 class="screen-c4">
+        <Title :titlename="c4name"/>
+        <Screen-c4></Screen-c4>
+      </dv-border-box12>
     </section>
   </div>
 </template>
 
-<script setup lang="ts">
-import LeftTop from './LeftTop.vue'
-import LeftMiddle from './LeftMiddle.vue'
-import LeftBottom from './LeftBottom.vue'
-import MiddleTop from './MiddleTop.vue'
-import MiddleBottom from './MiddleBottom.vue'
-import RightTop from './RightTop.vue'
-import RightMiddle from './RightMiddle.vue'
-import RightbMiddle from './RightbMiddle.vue'
-import RightBottom from './RightBottom.vue'
-import { ref, reactive, toRefs } from "vue";
+<script setup>
+import ScreenA1 from "./ScreenA/screenA1.vue";
+import ScreenA2 from "./ScreenA/screenA2.vue";
+import ScreenA3 from "./ScreenA/screenA3.vue";
+import ScreenB1 from "./ScreenB/screenB1.vue";
+import ScreenB2 from "./ScreenB/screenB2.vue";
+import ScreenC1 from "./ScreenC/screenC1.vue";
+import ScreenC2 from "./ScreenC/screenC2.vue";
+import ScreenC3 from "./ScreenC/screenC3.vue";
+import ScreenC4 from "./ScreenC/screenC4.vue";
+import Title from "../Title/index.vue";
+
+let a2name = "各部门能耗占比";
+let a3name = "各介质月统计";
+let b1name = "综合能耗";
+let b2name = "系统能效";
+let c1name = "单箱水耗";
+let c2name = "吨烟综合能耗";
+let c3name = "吨烟综合能耗";
+let c4name = "重复用水率";
 </script>
 
 <style lang="scss" scoped>
-.screen-header {
-  width: 100%;
-  height: 64px;
-  font-size: 20px;
+dv-border-box12,dv-border-box13{
   position: relative;
-
-  >div {
-    img {
-      width: 100%;
-    }
-  }
-
-  .title {
-    position: absolute;
-    color: #fff;  
-    left: 50%;
-    top: 50%;
-    font-size: 30px;
-    letter-spacing: 1.5px;
-    transform: translate(-50%, -50%);
-  }
-
-  .title-right {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 0px;
-    padding-top: 30px;
-    top: 50%;
-    transform: translateY(-80%);
-  }
-
-  .qiehuan {
-    width: 28px;
-    height: 21px;
-    cursor: pointer;
-  }
-
-  .datetime {
-    font-size: 15px;
-    margin-left: 10px;
-  }
-
-  .logo {
-    position: absolute;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-80%);
-
-    a {
-      text-decoration: none;
-    }
-  }
 }
-
 .screen-body {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 60px);
   display: flex;
-  margin-top: 10px;
-
+  margin-top: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
   .screen-left {
     height: 100%;
-    // width: 27.6%;
-    width: 31%;
+    flex: 33%;
 
-    .left-top {
+    .screen-a1 {
       height: 18vh;
       position: relative;
     }
 
-    .left-middle {
+    .screen-a2 {
       height: 37.5vh;
-      // margin:  8px 0;
       position: relative;
     }
 
-    .left-bottom {
+    .screen-a3 {
       height: 37.5vh;
       position: relative;
     }
@@ -135,23 +100,17 @@ import { ref, reactive, toRefs } from "vue";
 
   .screen-middle {
     height: 100%;
-    // width: 41.5%;
-    width: 41%;
-    // margin-left: 1.6%;
+    flex: 43%;
     margin-left: 0.5%;
-    // margin-right: 1.6%;
     margin-right: 0.5%;
 
-    .middle-top {
+    .screen-b1 {
       width: 100%;
       height: 40vh;
       position: relative;
     }
 
-
-
-    .middle-bottom {
-      // margin-top: 25px;
+    .screen-b2 {
       width: 100%;
       height: 53vh;
       position: relative;
@@ -160,34 +119,29 @@ import { ref, reactive, toRefs } from "vue";
 
   .screen-right {
     height: 100%;
-    // width: 27.6%;
-    width: 31%;
+    flex: 33%;
 
-    .right-top {
+    .screen-c1 {
       height: 22.7vh;
       position: relative;
     }
 
-    .right-middle {
+    .screen-c2 {
       height: 22.7vh;
-      margin:  8px 0;
+      margin: 8px 0;
       position: relative;
     }
 
-    .right-bmiddle {
+    .screen-c3 {
       height: 22.7vh;
-      margin:  8px 0;
+      margin: 8px 0;
       position: relative;
     }
 
-    .right-bottom {
+    .screen-c4 {
       height: 22.7vh;
-      // margin-top: 25px;
-      // margin-top: 8px;
       position: relative;
     }
   }
 }
-
-
 </style>

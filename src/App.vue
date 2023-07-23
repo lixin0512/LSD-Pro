@@ -6,12 +6,3 @@
     </Transition>
   </router-view>
 </template>
-
-<style scoped>
-body {
-  max-width: 1920px;
-  min-width: 768px;
-  max-height: 1080px;
-}
-
-</style>

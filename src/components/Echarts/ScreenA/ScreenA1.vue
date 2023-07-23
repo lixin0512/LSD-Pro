@@ -30,15 +30,11 @@
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="yield-chart" ref="yieldChart"></div>
     <div class="yield-wrap">
       <div v-for="item in yieldArr">
         {{ item }}
       </div>
     </div>
-    <!-- <div class="yield-dot"></div> -->
-  </dv-border-box12>
 </template>
 
 <script setup>
@@ -49,29 +45,4 @@ const global = inject("global");
 let yieldnum = ref('2381965');
 let yieldArr = yieldnum.value.toString().split("");
 
-let initChart = () => {
-  let chart = document.getElementById("yield-chart");
-  let yieldChart = global.echarts.init(chart);
-  let option = {
-    title: {
-      text: "▎标煤年累计(kgce)",
-      left: "35px",
-      top: "20px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
-  };
-
-  yieldChart.setOption(option);
-  //自适应
-  window.onresize = function () {
-    //自适应大小
-    yieldChart.resize();
-  };
-};
-onMounted(() => {
-  initChart();
-});
 </script>

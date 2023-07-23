@@ -13,7 +13,10 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 8088,
-    hmr: true, //热更新
+    hmr: {
+      overlay: true,
+      port: 8088,
+    }, //热更新
     open: true,
     hot: true,
     https: false,

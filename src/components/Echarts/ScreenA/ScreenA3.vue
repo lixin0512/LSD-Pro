@@ -5,9 +5,7 @@
 }
 </style>
 <template>
-  <dv-border-box12 class="com-container">
-    <div id="medium-chart"></div>
-  </dv-border-box12>
+  <div id="medium-chart"></div>
 </template>
 
 <script setup>
@@ -21,15 +19,15 @@ let initChart = () => {
 
   let colors = ["rgba(11, 255, 177, 1)", "rgba(45, 173, 255, 1)"];
   let option = {
-     title: {
-      text: "▎各介质月统计",
-      left: "35px",
-      top: "20px",
-      textStyle: {
-        color: "#fff",
-        fontSize: 20,
-      },
-    },
+    //   title: {
+    //    text: "▎各介质月统计",
+    //    left: "35px",
+    //    top: "20px",
+    //    textStyle: {
+    //      color: "#fff",
+    //      fontSize: 20,
+    //    },
+    //  },
     tooltip: {
       trigger: "axis",
       backgroundColor: "rgba(1, 13, 19, 0.5)",
@@ -46,7 +44,7 @@ let initChart = () => {
       },
     },
     legend: {
-      top: "15%",
+      top: "6",
       textStyle: {
         color: "rgba(212, 232, 254, 1)",
         fontSize: 12,
@@ -56,10 +54,11 @@ let initChart = () => {
       data: ["自来水", "压缩空气", "蒸汽", "电", "软水"],
     },
     grid: {
-      top: "25%",
+      top: "15%",
       left: "10%",
       right: "6%",
-      bottom: "15%",
+      bottom: "20%",
+      containLabel: true,
     },
     xAxis: [
       {
@@ -134,15 +133,13 @@ let initChart = () => {
       {
         name: "自来水",
         type: "line",
-        symbol: "circle", 
+        symbol: "circle",
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
-          normal: {
-            width: 2,
-            color: colors[0], 
-          },
+          width: 2,
+          color: colors[0],
           borderColor: "rgba(0,0,0,.4)",
         },
         itemStyle: {
@@ -158,15 +155,13 @@ let initChart = () => {
       {
         name: "压缩空气",
         type: "line",
-        symbol: "circle", 
+        symbol: "circle",
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
-          normal: {
-            width: 2,
-            color: colors[1], 
-          },
+          width: 2,
+          color: colors[1],
           borderColor: "rgba(0,0,0,.4)",
         },
         itemStyle: {
@@ -182,15 +177,13 @@ let initChart = () => {
       {
         name: "蒸汽",
         type: "line",
-        symbol: "circle", 
+        symbol: "circle",
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
-          normal: {
-            width: 2,
-            color: "#FF6262", // 线条颜色
-          },
+          width: 2,
+          color: "#FF6262", // 线条颜色
           borderColor: "rgba(0,0,0,.4)",
         },
         itemStyle: {
@@ -206,15 +199,13 @@ let initChart = () => {
       {
         name: "电",
         type: "line",
-        symbol: "circle", 
+        symbol: "circle",
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
-          normal: {
-            width: 2,
-            color: "#FFA200", 
-          },
+          width: 2,
+          color: "#FFA200",
           borderColor: "rgba(0,0,0,.4)",
         },
         itemStyle: {
@@ -230,15 +221,13 @@ let initChart = () => {
       {
         name: "软水",
         type: "line",
-        symbol: "circle", 
+        symbol: "circle",
         showAllSymbol: true,
         symbolSize: 0,
         smooth: true,
         lineStyle: {
-          normal: {
-            width: 2,
-            color: "#ddd", 
-          },
+          width: 2,
+          color: "#ddd",
           borderColor: "rgba(0,0,0,.4)",
         },
         itemStyle: {
